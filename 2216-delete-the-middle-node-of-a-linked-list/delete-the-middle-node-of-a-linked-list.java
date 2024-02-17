@@ -13,6 +13,18 @@ class Solution {
         return brutForce(head);
     }
 
+    public ListNode optimizeSolution(ListNode head){
+        ListNode slow=head;
+        ListNode fast=head.next.next;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+
+        slow.next=slow.next.next;
+        return head;
+    }
 
     public ListNode brutForce(ListNode head){
         ListNode current=head;
